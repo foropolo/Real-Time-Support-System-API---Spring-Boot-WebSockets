@@ -1,0 +1,251 @@
+{
+	"info": {
+		"_postman_id": "68a71306-6dec-4d02-bbe5-cfc1622b3c32",
+		"name": "OTS Support Demo Java",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "43150741"
+	},
+	"item": [
+		{
+			"name": "Active Requests",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/support/requests",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"support",
+						"requests"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Available Agent",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/support/available-agent",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"support",
+						"available-agent"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Agent",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"Agent 1\",\r\n  \"available\": true\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/support/add-agent",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"support",
+						"add-agent"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Assign Agent to Request",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/support/assign?requestId=740aaa52-7bb6-44ac-9922-db4539e366ec",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"support",
+						"assign"
+					],
+					"query": [
+						{
+							"key": "requestId",
+							"value": "740aaa52-7bb6-44ac-9922-db4539e366ec"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Submit Support Request",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"John Doe\",\r\n  \"email\": \"johndoe@example.com\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/support/submit?issueDescription=TestIssue",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"support",
+						"submit"
+					],
+					"query": [
+						{
+							"key": "issueDescription",
+							"value": "TestIssue"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Send Message",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/support/message?requestId=740aaa52-7bb6-44ac-9922-db4539e366ec&sender=customer&content=Hello!",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"support",
+						"message"
+					],
+					"query": [
+						{
+							"key": "requestId",
+							"value": "740aaa52-7bb6-44ac-9922-db4539e366ec"
+						},
+						{
+							"key": "sender",
+							"value": "customer"
+						},
+						{
+							"key": "content",
+							"value": "Hello!"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Messages for Request",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/support/messages/740aaa52-7bb6-44ac-9922-db4539e366ec",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"support",
+						"messages",
+						"740aaa52-7bb6-44ac-9922-db4539e366ec"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Upload File",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "requestId",
+							"value": "740aaa52-7bb6-44ac-9922-db4539e366ec\t",
+							"type": "text"
+						},
+						{
+							"key": "file",
+							"type": "file",
+							"src": "/C:/Users/Foro/Desktop/image-removebg-preview.png"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/support/upload",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"support",
+						"upload"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Uploaded Files for Request",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/support/attachments/740aaa52-7bb6-44ac-9922-db4539e366ec",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"support",
+						"attachments",
+						"740aaa52-7bb6-44ac-9922-db4539e366ec"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
